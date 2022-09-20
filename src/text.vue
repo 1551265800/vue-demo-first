@@ -2,6 +2,8 @@
     <div id="textBox">
         <p>这是 {{username}} 的vue界面</p>
         <button @click="changeName">修改用户名</button>
+        <br>
+        <MyCount :init = 9></MyCount>
         <hr>
         <img alt="Vue logo" src="./assets/logo.png">
         <HelloWorld msg="这是一个欢迎页面" />
