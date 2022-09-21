@@ -3,7 +3,8 @@
         <p>这是 {{username}} 的vue界面</p>
         <button @click="changeName">修改用户名</button>
         <br>
-        <MyCount :init = 9></MyCount>
+        <MyCount :init=9 @sonCount="getSonCount"></MyCount>
+        <p>子组件传来的count{{sonCount}}</p>
         <hr>
         <img alt="Vue logo" src="./assets/logo.png">
         <HelloWorld msg="这是一个欢迎页面" />
@@ -21,13 +22,20 @@ export default {
     data() {
         //这个return出去的对象可以定义数据
         return {
-            username: "张三"
+            username: "张三",
+            //接受子组件传来的数据
+            sonCount: 0
+
+
         }
     },
     methods: {
         changeName() {
             //在组件中this指向当前组件的实例对象
             this.username = "法外狂徒--张三"
+        },
+        getSonCount(val){
+            this.sonCount = val;
         }
     },
     components: {

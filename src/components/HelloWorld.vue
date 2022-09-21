@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button @click="sendMessage">发送兄弟数据</button>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -30,11 +31,22 @@
 </template>
 
 <script>
+import bus from './eventBus';
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  data() {
+    return {
+      message: "这是兄弟之间传递的数据"
+    }
+  },
+  methods: {
+    sendMessage(){
+      bus.$emit("share",this.message);
+    }
+  },
 }
 </script>
 
